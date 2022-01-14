@@ -12,7 +12,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import java.util.List;
 
 @SpringBootApplication
-//@EnableScheduling
+@EnableScheduling
 public class ArticlesApplication implements CommandLineRunner {
 
     final ArticleService articleService;
@@ -27,11 +27,10 @@ public class ArticlesApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        List<Article> articles = ExtractionSource.getKoaciExtract();
-        List<Article> articles1 = ExtractionSource.getJournalDeBrazza();
-        List<Article> articles2 = ExtractionSource.getJeuneAfrique();
-        List<Article> articles3 = ExtractionSource.getSenego();
-        List<Article> articles4 = ExtractionSource.getLesEchosExtraction();
+    }
+
+    @Scheduled(cron = "0 0 */6 * * ?")
+    public void perform(){
         List<Article> articles5 = ExtractionSource.getAdiacCongo();
         List<Article> articles6 = ExtractionSource.getGabonReview();
         List<Article> articles7 = ExtractionSource.getCamerounInfo();
@@ -39,26 +38,30 @@ public class ArticlesApplication implements CommandLineRunner {
         List<Article> articles9 = ExtractionSource.getAps();
         List<Article> articles10 = ExtractionSource.getDakarActu();
         List<Article> articles11 = ExtractionSource.getAfrimag();
-        articleService.saveAllArticle(articles);
-        articleService.saveAllArticle(articles1);
-        articleService.saveAllArticle(articles2);
-        articleService.saveAllArticle(articles3);
-        articleService.saveAllArticle(articles4);
-        articleService.saveAllArticle(articles5);
         articleService.saveAllArticle(articles6);
         articleService.saveAllArticle(articles7);
         articleService.saveAllArticle(articles8);
         articleService.saveAllArticle(articles9);
         articleService.saveAllArticle(articles10);
         articleService.saveAllArticle(articles11);
-
-
+        articleService.saveAllArticle(articles5);
+        System.err.println("Enregistrement des articles toutes les 6 heures");
     }
 
-    ///@Scheduled(cron = "0 */1 * * * ?")
-    ///public void perform(){
-     ///   System.err.println("dsdsdsdsdsdsd");
-    ///}
+    @Scheduled(cron = "0 0 */5 * * ?")
+    public void perform2(){
+        List<Article> articles = ExtractionSource.getKoaciExtract();
+        List<Article> articles1 = ExtractionSource.getJournalDeBrazza();
+        List<Article> articles2 = ExtractionSource.getJeuneAfrique();
+        List<Article> articles3 = ExtractionSource.getSenego();
+        List<Article> articles4 = ExtractionSource.getLesEchosExtraction();
+        articleService.saveAllArticle(articles);
+        articleService.saveAllArticle(articles1);
+        articleService.saveAllArticle(articles2);
+        articleService.saveAllArticle(articles3);
+        articleService.saveAllArticle(articles4);
+        System.err.println("Enregistrement des articles toutes les 5 heures");
+    }
 
 
 }
