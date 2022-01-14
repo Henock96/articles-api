@@ -39,24 +39,19 @@ public class ArticlesApplication implements CommandLineRunner {
         List<Article> articles9 = ExtractionSource.getAps();
         List<Article> articles10 = ExtractionSource.getDakarActu();
         List<Article> articles11 = ExtractionSource.getAfrimag();
-        ///System.out.println(articles);
-        ///System.out.println(articles1);
-        ///System.out.println(articles2);
-        ///System.out.println(articles3);
-        ///System.out.println(articles4);
-        ///System.out.println(articles6);
-        ///System.out.println(articles7);
-        ///System.out.println(articles8);
-        ///System.err.println(articles9);
-        ///articleService.saveAllArticle(articles);
-        //articleService.saveAllArticle(articles1);
-        ///articleService.saveAllArticle(articles2);
-        ///articleService.saveAllArticle(articles3);
-        ///articleService.saveAllArticle(articles4);
-        //articleService.saveAllArticle(articles5);
-        ///articleService.saveAllArticle(articles6);
-        ///articleService.saveAllArticle(articles7);
-        ///articleService.saveAllArticle(articles8);
+        articleService.saveAllArticle(articles);
+        articleService.saveAllArticle(articles1);
+        articleService.saveAllArticle(articles2);
+        articleService.saveAllArticle(articles3);
+        articleService.saveAllArticle(articles4);
+        articleService.saveAllArticle(articles5);
+        articleService.saveAllArticle(articles6);
+        articleService.saveAllArticle(articles7);
+        articleService.saveAllArticle(articles8);
+        articleService.saveAllArticle(articles9);
+        articleService.saveAllArticle(articles10);
+        articleService.saveAllArticle(articles11);
+
 
     }
 

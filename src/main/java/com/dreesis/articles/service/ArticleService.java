@@ -55,7 +55,7 @@ public class ArticleService {
                     }
                 }
             }else {
-                Optional<Categorie> categorie = categorieRepository.findById(3L);
+                Optional<Categorie> categorie = categorieRepository.findById(20L);
                 categorie1 = categorie.get();
                 articles.get(i).setCategorie(categorie.get());
             }
