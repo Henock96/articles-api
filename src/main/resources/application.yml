@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/afroNewsDB
+    username: ma
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+
+    properties:
+      hibernate:
+        metadata_builder_contributor: com.dreesis.articles.utils.SqlFunctionsMetadataBuilderContributor
+
+server:
+  port: 9090
+
