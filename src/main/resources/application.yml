@@ -1,7 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/afroNewsDB
-    username: ma
+    url: jdbc:postgresql://ec2-54-208-139-247.compute-1.amazonaws.com:5432/db5u50n9dpa7nj
+    username: hzopswatatycec
+    password: 9ce1266cfc656f70ec93db112033e998e88a0db7949185e9894a538cc2a82772
   jpa:
     hibernate:
       ddl-auto: update
