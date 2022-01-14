@@ -100,7 +100,7 @@ public class ArticleService {
         List<Article> articleJeuneAfrique = findSourceByName("Jeune Afrique").subList(0, 2);
         List<Article> articleGabonReview = findSourceByName("Gabon Review").subList(0, 2);
         List<Article> articleDakarActu = findSourceByName("DakarActu").subList(0, 2);
-        List<Article> articleLesEchos = findSourceByName("LesEchos-CongoBrazzaville").subList(0, 2);
+        List<Article> articleLesEchos = findSourceByName("LesEchos").subList(0, 2);
         List<Article> articleCamerounInfo = findSourceByName("Cameroon-Info").subList(0, 2);
         List<Article> articleLinfodrome = findSourceByName("Linfodrome").subList(0, 2);
         List<Article> articleAps = findSourceByName("Aps").subList(0, 2);
