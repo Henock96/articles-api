@@ -29,7 +29,7 @@ public class ArticlesApplication implements CommandLineRunner {
     public void run(String... args) {
     }
 
-    @Scheduled(cron = "0 0 */6 * * ?")
+    @Scheduled(cron = "0 */180 * * * ?")
     public void perform(){
         List<Article> articles5 = ExtractionSource.getAdiacCongo();
         List<Article> articles6 = ExtractionSource.getGabonReview();
@@ -45,10 +45,10 @@ public class ArticlesApplication implements CommandLineRunner {
         articleService.saveAllArticle(articles10);
         articleService.saveAllArticle(articles11);
         articleService.saveAllArticle(articles5);
-        System.err.println("Enregistrement des articles toutes les 6 heures");
+        System.err.println("Enregistrement des articles toutes les 180 minutes donc 3 heures");
     }
 
-    @Scheduled(cron = "0 0 */5 * * ?")
+    @Scheduled(cron = "0 */240 * * * ?")
     public void perform2(){
         List<Article> articles = ExtractionSource.getKoaciExtract();
         List<Article> articles1 = ExtractionSource.getJournalDeBrazza();
@@ -60,7 +60,7 @@ public class ArticlesApplication implements CommandLineRunner {
         articleService.saveAllArticle(articles2);
         articleService.saveAllArticle(articles3);
         articleService.saveAllArticle(articles4);
-        System.err.println("Enregistrement des articles toutes les 5 heures");
+        System.err.println("Enregistrement des articles toutes 240 minutes donc 4 heures");
     }
 
 
