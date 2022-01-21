@@ -27,6 +27,7 @@ public class ArticlesApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
+
     }
 
     @Scheduled(cron = "0 */180 * * * ?")
@@ -36,13 +37,13 @@ public class ArticlesApplication implements CommandLineRunner {
         List<Article> articles7 = ExtractionSource.getCamerounInfo();
         List<Article> articles8 = ExtractionSource.getLinfodrome();
         List<Article> articles9 = ExtractionSource.getAps();
-        List<Article> articles10 = ExtractionSource.getDakarActu();
         List<Article> articles11 = ExtractionSource.getAfrimag();
+        List<Article> articles17 = ExtractionSource.getAfriqueitnews();
         articleService.saveAllArticle(articles6);
         articleService.saveAllArticle(articles7);
         articleService.saveAllArticle(articles8);
         articleService.saveAllArticle(articles9);
-        articleService.saveAllArticle(articles10);
+        articleService.saveAllArticle(articles17);
         articleService.saveAllArticle(articles11);
         articleService.saveAllArticle(articles5);
         System.err.println("Enregistrement des articles toutes les 180 minutes donc 3 heures");
@@ -54,13 +55,29 @@ public class ArticlesApplication implements CommandLineRunner {
         List<Article> articles1 = ExtractionSource.getJournalDeBrazza();
         List<Article> articles2 = ExtractionSource.getJeuneAfrique();
         List<Article> articles3 = ExtractionSource.getSenego();
-        List<Article> articles4 = ExtractionSource.getLesEchosExtraction();
+        List<Article> articles16 = ExtractionSource.getAfriquelatribuneTechTelecoms();
         articleService.saveAllArticle(articles);
         articleService.saveAllArticle(articles1);
         articleService.saveAllArticle(articles2);
         articleService.saveAllArticle(articles3);
-        articleService.saveAllArticle(articles4);
+        articleService.saveAllArticle(articles16);
         System.err.println("Enregistrement des articles toutes 240 minutes donc 4 heures");
+    }
+    @Scheduled(cron = "0 */240 * * * *")
+    public void perform3(){
+        List<Article> articles12 = ExtractionSource.getAfriquelatribuneTech();
+        List<Article> articles13 = ExtractionSource.getAfrikfoot();
+        List<Article> articles14 = ExtractionSource.getAfriquelatribuneEconomie();
+        List<Article> articles15 = ExtractionSource.getAfriquelatribunePolitique();
+        List<Article> articles4 = ExtractionSource.getLesEchosExtraction();
+        List<Article> articles10 = ExtractionSource.getDakarActu();
+        articleService.saveAllArticle(articles12);
+        articleService.saveAllArticle(articles13);
+        articleService.saveAllArticle(articles14);
+        articleService.saveAllArticle(articles15);
+        articleService.saveAllArticle(articles4);
+        articleService.saveAllArticle(articles10);
+        System.err.println("Enregistrement des articles 2e groupe toutes 240 minutes donc 4 heures");
     }
 
 

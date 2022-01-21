@@ -13,6 +13,360 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExtractionSource {
+    public static List<Article> getAfrikfoot(){
+        //Afrik-foot 21/01/2022
+        String url = "https://www.afrik-foot.com/";
+        List<Article> liste = new ArrayList<>();
+
+        try {
+            Document doc = Jsoup.connect(url).get();
+            String title = doc.title();
+            //System.out.println(title);
+            Elements docs = doc.select("div.td-main-content-wrap");
+            Elements main = docs.select("div.td-container");
+            Elements content = main.select("div.td-ss-main-content");
+            for(Element tdmain : content){
+                //System.out.println(tdmain);
+                Elements arts = tdmain.select("div.td_module_10");
+
+                for(Element art : arts){
+                    Article article1 = new Article();
+                    Source source = new Source();
+                    source.setNom("Afrik-Foot");
+                    source.setPays("Afrique");
+                    source.setUrl_source(url);
+                    article1.setSource(source);
+                    Categorie categorie = new Categorie();
+                    categorie.setNom("SPORT");
+                    article1.setCategorie(categorie);
+                    Elements thumb = art.select("div.td-module-thumb");
+                    for(Element lien : thumb){
+
+                        String liens = lien.select("a").attr("href");
+                        article1.setUrl_article(liens);
+                        Elements img = lien.select("a");
+                        for(Element imglien : img){
+                            String urlA = imglien.select("img").attr("data-img-url");
+                            //System.out.println(urlA);
+                            article1.setUrl_image(urlA);
+
+                        }
+
+                    }
+                    Elements details = art.select("div.item-details");
+                    for(Element detail : details){
+                        String titre = detail.select("h3.entry-title").text();
+                        article1.setTitre(titre);
+                        //System.out.println(titre);
+                    }
+                    Elements dtime = details.select("div.td-module-meta-info").select("span.td-post-date");
+                    for(Element datetime :dtime){
+                        String temp = datetime.select("time").text();
+                        //System.out.println(temp);
+                        article1.setDate_publication(temp);
+                    }
+                    Elements desc = details.select("div.td-excerpt");
+                    for(Element descpt : desc){
+                        String description = descpt.text();
+                        //System.out.println(description);
+                        article1.setDescription(description);
+
+                    }
+                    liste.add(article1);
+                }
+
+            }
+            //System.out.println(liste);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return liste;
+    }
+    public static List<Article> getAfriquelatribuneEconomie(){
+        String url = "https://afrique.latribune.fr/economie";
+        List<Article> liste = new ArrayList<>();
+        try{
+            Document doc = Jsoup.connect(url).get();
+            String title = doc.title();
+            //System.out.println(title);
+            Elements content = doc.select("div.row-custom");
+            Elements docs = content.select("div.col-centrale");
+            Elements main = docs.select("div.river");
+            for(Element centre : main){
+                Elements river = centre.select("article.article-wrapper");
+                for(Element wrapper : river){
+                    Elements wrap = wrapper.select("section.chapo");
+                    Article article = new Article();
+                    Source source = new Source();
+                    source.setNom("Latribune");
+                    source.setPays("Afrique");
+                    source.setUrl_source(url);
+                    article.setSource(source);
+                    Categorie categorie = new Categorie();
+                    categorie.setNom("ÉCONOMIE");
+                    article.setCategorie(categorie);
+                    for(Element chapo : wrap){
+                        Elements titres = chapo.select("h2");
+                        for(Element titre : titres){
+                            String urlA = titre.select("a").attr("href");
+                            //System.out.println(urlA);
+                            article.setUrl_article(urlA);
+                            String tit = titre.select("a").text();
+                            //System.out.println(tit);
+                            article.setTitre(tit);
+                        }
+                        Elements desc = chapo.select("p");
+                        for(Element descs : desc){
+                            String description = descs.text();
+                            //System.out.println(description);
+                            article.setDescription(description);
+                        }
+                    }
+                    Elements wraps = wrapper.select("div.image-wrapper").select("a");
+                    for(Element img : wraps){
+                        String imageUrl = img.select("img").attr("src");
+                        //System.out.println(imageUrl);
+                        article.setUrl_image(imageUrl);
+                        liste.add(article);
+                    }
+                }
+            }
+            //System.out.println(liste);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return liste;
+    }
+    public static List<Article> getAfriquelatribunePolitique(){
+        String url = "https://afrique.latribune.fr/politique";
+        List<Article> liste = new ArrayList<>();
+        try{
+            Document doc = Jsoup.connect(url).get();
+            String title = doc.title();
+            //System.out.println(title);
+            Elements content = doc.select("div.row-custom");
+            Elements docs = content.select("div.col-centrale");
+            Elements main = docs.select("div.river");
+            for(Element centre : main){
+                Elements river = centre.select("article.article-wrapper");
+                for(Element wrapper : river){
+                    Elements wrap = wrapper.select("section.chapo");
+                    Article article = new Article();
+                    Source source = new Source();
+                    source.setNom("Latribune");
+                    source.setPays("Afrique");
+                    source.setUrl_source(url);
+                    article.setSource(source);
+                    Categorie categorie = new Categorie();
+                    categorie.setNom("POLITIQUE");
+                    article.setCategorie(categorie);
+                    for(Element chapo : wrap){
+                        Elements titres = chapo.select("h2");
+                        for(Element titre : titres){
+                            String urlA = titre.select("a").attr("href");
+                            //System.out.println(urlA);
+                            article.setUrl_article(urlA);
+                            String tit = titre.select("a").text();
+                            //System.out.println(tit);
+                            article.setTitre(tit);
+                        }
+                        Elements desc = chapo.select("p");
+                        for(Element descs : desc){
+                            String description = descs.text();
+                            //System.out.println(description);
+                            article.setDescription(description);
+                        }
+                    }
+                    Elements wraps = wrapper.select("div.image-wrapper").select("a");
+                    for(Element img : wraps){
+                        String imageUrl = img.select("img").attr("src");
+                        //System.out.println(imageUrl);
+                        article.setUrl_image(imageUrl);
+                        liste.add(article);
+                    }
+                }
+            }
+            //System.out.println(liste);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return liste;
+    }
+    public static List<Article> getAfriquelatribuneTech(){
+        String url = "https://afrique.latribune.fr/africa-tech";
+        List<Article> liste = new ArrayList<>();
+        try{
+            Document doc = Jsoup.connect(url).get();
+            String title = doc.title();
+            //System.out.println(title);
+            Elements content = doc.select("div.row-custom");
+            Elements docs = content.select("div.col-centrale");
+            Elements main = docs.select("div.river");
+            for(Element centre : main){
+                Elements river = centre.select("article.article-wrapper");
+                for(Element wrapper : river){
+                    Elements wrap = wrapper.select("section.chapo");
+                    Article article = new Article();
+                    Source source = new Source();
+                    source.setNom("Latribune");
+                    source.setPays("Afrique");
+                    source.setUrl_source(url);
+                    article.setSource(source);
+                    Categorie categorie = new Categorie();
+                    categorie.setNom("TECHNOLOGIE");
+                    article.setCategorie(categorie);
+                    for(Element chapo : wrap){
+                        Elements titres = chapo.select("h2");
+                        for(Element titre : titres){
+                            String urlA = titre.select("a").attr("href");
+                            //System.out.println(urlA);
+                            article.setUrl_article(urlA);
+                            String tit = titre.select("a").text();
+                            //System.out.println(tit);
+                            article.setTitre(tit);
+                        }
+                        Elements desc = chapo.select("p");
+                        for(Element descs : desc){
+                            String description = descs.text();
+                            //System.out.println(description);
+                            article.setDescription(description);
+                        }
+                    }
+                    Elements wraps = wrapper.select("div.image-wrapper").select("a");
+                    for(Element img : wraps){
+                        String imageUrl = img.select("img").attr("src");
+                        //System.out.println(imageUrl);
+                        article.setUrl_image(imageUrl);
+                        liste.add(article);
+                    }
+                }
+            }
+            //System.out.println(liste);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return liste;
+    }
+    public static List<Article> getAfriquelatribuneTechTelecoms(){
+        String url2 = "https://afrique.latribune.fr/africa-tech/telecoms";
+        List<Article> liste = new ArrayList<>();
+        try{
+            Document doc = Jsoup.connect(url2).get();
+            String title = doc.title();
+            //System.out.println(title);
+            Elements content = doc.select("div.row-custom");
+            Elements docs = content.select("div.col-centrale");
+            Elements main = docs.select("div.river");
+            for(Element centre : main){
+                Elements river = centre.select("article.article-wrapper");
+                for(Element wrapper : river){
+                    Elements wrap = wrapper.select("section.chapo");
+                    Article article = new Article();
+                    Source source = new Source();
+                    source.setNom("Latribune");
+                    source.setPays("Afrique");
+                    source.setUrl_source(url2);
+                    article.setSource(source);
+                    Categorie categorie = new Categorie();
+                    categorie.setNom("TECHNOLOGIE");
+                    article.setCategorie(categorie);
+                    for(Element chapo : wrap){
+                        Elements titres = chapo.select("h2");
+                        for(Element titre : titres){
+                            String urlA = titre.select("a").attr("href");
+                            //System.out.println(urlA);
+                            article.setUrl_article(urlA);
+                            String tit = titre.select("a").text();
+                            //System.out.println(tit);
+                            article.setTitre(tit);
+                        }
+                        Elements desc = chapo.select("p");
+                        for(Element descs : desc){
+                            String description = descs.text();
+                            //System.out.println(description);
+                            article.setDescription(description);
+                        }
+                    }
+                    Elements wraps = wrapper.select("div.image-wrapper").select("a");
+                    for(Element img : wraps){
+                        String imageUrl = img.select("img").attr("src");
+                        //System.out.println(imageUrl);
+                        article.setUrl_image(imageUrl);
+                        liste.add(article);
+                    }
+                }
+            }
+            //System.out.println(liste);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return liste;
+    }
+    public static List<Article> getAfriqueitnews(){
+        String url = "https://afriqueitnews.com/";
+        List<Article> liste = new ArrayList<>();
+        try{
+            Document doc = Jsoup.connect(url).get();
+            String title = doc.title();
+            //System.out.println(title);
+            Elements docs = doc.select("div.elementor-widget-jnews_block_5_elementor");
+            Elements main = docs.select("div.elementor-widget-container");
+            Elements jeg = main.select("div.jeg_posts");
+            for(Element posts : jeg){
+                Elements post = posts.select("article.jeg_post");
+
+                for(Element thumba : post){
+                    Article article = new Article();
+                    Source source = new Source();
+                    source.setNom("AfriqueITNews");
+                    source.setPays("Afrique");
+                    source.setUrl_source(url);
+                    article.setSource(source);
+                    Categorie categorie = new Categorie();
+                    categorie.setNom("TECHNOLOGIE");
+                    article.setCategorie(categorie);
+                    Elements thumbs = thumba.select("div.jeg_thumb");
+                    for(Element thumb : thumbs){
+                        String urlA = thumb.select("a").attr("href");
+                        //System.out.println(urlA);
+                        article.setUrl_article(urlA);
+                        Elements img = thumb.select("a").select("div.thumbnail-container");
+                        for(Element imgurl : img){
+                            String imageUrl = imgurl.select("img").attr("data-src");
+                            //System.out.println(imageUrl);
+                            article.setUrl_image(imageUrl);
+                        }
+                    }
+                    Elements content = thumba.select("div.jeg_postblock_content");
+                    for(Element contents : content){
+                        Elements titres = contents.select("h3.jeg_post_title");
+                        for(Element tit : titres){
+                            String tits = tit.select("a").text();
+                            //System.out.println(tits);
+                            article.setTitre(tits);
+                        }
+                        Elements meta = contents.select("div.jeg_meta_date").select("a");
+                        for(Element dtime : meta){
+                            String dtimes = dtime.text();
+                            //System.out.println(dtimes);
+                            article.setDate_publication(dtimes);
+                        }
+                        Elements desc = contents.select("div.jeg_post_excerpt").select("p");
+                        for(Element descs : desc){
+                            String description = descs.text();
+                            //System.out.println(description);
+                            article.setDescription(description);
+                            liste.add(article);
+                        }
+                    }
+                }
+            }
+            //liste.forEach(System.out::println);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return liste;
+    }
     public static List<Article> getAfrimag(){
         //Afrimag 11/01/2022
         String url = "https://afrimag.net/rubrique/economie-et-entreprise/";
@@ -507,7 +861,7 @@ public class ExtractionSource {
             }
         }
         catch (Exception e){
-
+            e.printStackTrace();
         }
         return jList;
     }
@@ -577,7 +931,7 @@ public class ExtractionSource {
                 }
             }
         }catch (Exception e){
-
+            e.printStackTrace();
         }
         return list;
     }
@@ -647,7 +1001,7 @@ public class ExtractionSource {
                 }
             }
         }catch (Exception e){
-
+            e.printStackTrace();
         }
         return allArticle;
     }

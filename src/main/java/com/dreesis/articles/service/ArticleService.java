@@ -88,7 +88,7 @@ public class ArticleService {
     }
 
     public List<Article> findByMonTitre(String titre){
-        return repository.findByMonTitre(titre);
+        return repository.findByMonTitre(titre).subList(0,15);
     }
 
 
