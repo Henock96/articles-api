@@ -13,6 +13,294 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExtractionSource {
+    public static List<Article> getTelquel(){
+        //lequel.ma 22/01/2022
+        String url = "https://telquel.ma/";
+        List<Article> articleList = new ArrayList<>();
+        try {
+            Document doc = Jsoup.connect(url).get();
+            String title = doc.title();
+            //System.out.println(title);
+            Elements docs = doc.select("section.section");
+            Elements main = docs.select("div.container");
+            Elements gutter = main.select("div.col-gutter");
+            Elements content = gutter.select("ul.articles-list");
+            for(Element item : content){
+                Elements items = item.select("li.article-normal");
+                for(Element thumb : items){
+                    Elements post = thumb.select("div.row");
+                    for(Element posts : post){
+                        Article article = new Article();
+                        Source source = new Source();
+                        source.setNom("Telquel");
+                        source.setPays("Maroc");
+                        source.setUrl_source(url);
+                        article.setSource(source);
+                        Elements header = posts.select("div.article-header");
+                        for(Element heads : header){
+                            String urlA = heads.select("a.article-image").attr("href");
+                            //System.out.println(urlA);
+                            article.setUrl_article(urlA);
+                            Elements img = heads.select("a.article-image");
+                            for(Element imgurl : img){
+                                String imageurl = imgurl.select("img.wp-post-image").attr("src");
+                                //System.out.println(imageurl);
+                                article.setUrl_image(imageurl);
+                            }
+
+                        }
+                        Elements body = posts.select("div.article-content");
+                        for(Element bod : body){
+                            Elements cat = bod.select("div.article-meta");
+                            for(Element meta : cat){
+                                String cates = meta.select("a.article-category").text();
+                                Categorie categorie = new Categorie();
+                                categorie.setNom(cates);
+                                article.setCategorie(categorie);
+                                //System.out.println(cates);
+
+                            }
+                            Elements tit = bod.select("h3.article-heading");
+                            for(Element tits : tit){
+                                String titres = tits.select("a").text();
+                                //System.out.println(titres);
+                                article.setTitre(titres);
+                            }
+                            String dtime = bod.select("time.article-publish").text();
+                            //System.out.println(dtime);
+                            article.setDate_publication(dtime);
+                            articleList.add(article);
+                        }
+                    }
+                }
+            }
+            //articleList.forEach(System.out::println);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return articleList;
+    }
+    public static List<Article> getVox(){
+        //Vox.cg 12/01/2022
+        String url = "https://www.vox.cg/";
+        List<Article> liste = new ArrayList<>();
+        try{
+            Document doc = Jsoup.connect(url).get();
+            String title = doc.title();
+            //System.out.println(title);
+            Elements docs = doc.select("div#main");
+            Elements main = docs.select("div#fullwidth");
+            for(Element full : main){
+                Elements content = full.select("div.home-widget");
+                Elements post = content.select("ul.img-featured");
+
+                for(Element posts : post){
+                    Article article = new Article();
+                    Source source = new Source();
+                    source.setNom("Vox");
+                    source.setPays("Congo");
+                    source.setUrl_source(url);
+                    article.setSource(source);
+                    Elements img = posts.select("div.img-featured-posts-image");
+                    for(Element urlArt : img){
+                        String urlA = urlArt.select("a").attr("href");
+                        //System.out.println(urlA);
+                        article.setUrl_article(urlA);
+                        Elements urlImg = urlArt.select("a");
+                        String UrlImage = urlImg.select("img").attr("src");
+                        //System.out.println(UrlImage);
+                        article.setUrl_image(UrlImage);
+                    }
+                    Elements detail = img.select("div.img-featured-title");
+                    for(Element details : detail){
+                        String titre = details.select("h2").text();
+                        //System.out.println(titre);
+                        article.setTitre(titre);
+                        String dtime = details.select("div.author-date").select("div.date").text();
+                        //System.out.println(dtime);
+                        article.setDate_publication(dtime);
+                        liste.add(article);
+                    }
+
+                }
+            }
+            //System.out.println(liste);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return liste;
+    }
+    public static List<Article> getScidev(){
+        String url = "https://www.scidev.net/afrique-sub-saharienne/";
+        List<Article> articleList = new ArrayList<>();
+        try{
+            Document doc = Jsoup.connect(url).get();
+            String title = doc.title();
+            //System.out.println(title);
+            Elements docs = doc.select("div.fl-module");
+            Elements main = docs.select("div.fl-node-content");
+            Elements content = main.select("div.fl-html");
+            for(Element full : content){
+                Elements list = full.select("div.article-listing");
+                for(Element listing : list){
+                    Elements post = listing.select("div.article-list");
+                    for(Element posts : post){
+                        Article article = new Article();
+                        Source source = new Source();
+                        source.setNom("Scidev");
+                        source.setPays("Afrique");
+                        source.setUrl_source(url);
+                        article.setSource(source);
+                        Categorie categorie = new Categorie();
+                        categorie.setNom("SANTÉ");
+                        article.setCategorie(categorie);
+                        String lienA = posts.select("a.block-img").attr("href");
+                        //System.out.println(lienA);
+                        article.setUrl_article(lienA);
+                        Elements img = posts.select("a.block-img");
+                        for(Element imgurl : img){
+                            String imageUrl = imgurl.select("img").attr("data-src");
+                            //System.out.println(imageUrl);
+                            article.setUrl_image(imageUrl);
+                        }
+                        Elements contents = posts.select("div.list-contents");
+                        for(Element meta : contents){
+                            String titres = meta.select("h3").text();
+                            //System.out.println(titres);
+                            article.setTitre(titres);
+                            String dtime = meta.select("p.caption").get(1).text();
+                            //System.out.println(dtime);
+                            article.setDate_publication(dtime);
+                            articleList.add(article);
+                        }
+                    }
+                }
+            }
+            //articleList.forEach(System.out::println);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return articleList;
+    }
+    public static List<Article> getIvoiresoir(){
+        //ivoiresoir.net 21/01/2022
+        String url = "https://www.ivoiresoir.net/actualite/";
+        List<Article> articleList = new ArrayList<>();
+        try {
+            Document doc = Jsoup.connect(url).get();
+            String title = doc.title();
+            //System.out.println(title);
+            Elements docs = doc.select("div.td-main-content-wrap");
+            Elements main = docs.select("div.td-container");
+            Elements content = main.select("div.td-pb-span8");
+            Elements item = content.select("div.td-ss-main-content");
+            for(Element listing : item){
+                Elements lists = listing.select("div.td-block-row");
+                for(Element post : lists){
+                    Elements arts = post.select("div.td-block-span6");
+                    for(Element posts : arts){
+                        Elements clears = posts.select("div.td_module_2");
+                        for(Element thumb : clears){
+                            Article article = new Article();
+                            Source source = new Source();
+                            source.setNom("Yeclo.ci");
+                            source.setPays("Côte d'ivoire");
+                            source.setUrl_source(url);
+                            article.setSource(source);
+                            Elements module = thumb.select("div.td-module-image").select("div.td-module-thumb");
+                            for(Element liens : module){
+                                String urlA = liens.select("a.td-image-wrap").attr("href");
+                                //System.out.println(urlA);
+                                article.setUrl_article(urlA);
+                                Elements autres = liens.select("a.td-image-wrap").select("picture");
+                                for(Element img : autres){
+                                    String[] imgurl = img.select("img.entry-thumb").attr("srcset").split("324w");
+                                    //System.out.println(imgurl[0]);
+                                    article.setUrl_image(imgurl[0]);
+                                }
+                            }
+                            Elements entry = thumb.select("h3.entry-title");
+                            for(Element tits : entry){
+                                String tit = tits.select("a").text();
+                                //System.out.println(tit);
+                                article.setTitre(tit);
+                            }
+                            Elements dtime = thumb.select("div.td-module-meta-info");
+                            for(Element dtimes : dtime){
+                                String temps = dtimes.select("span.td-post-date").text();
+                                //System.out.println(temps);
+                                article.setDate_publication(temps);
+                            }
+                            Elements desc = thumb.select("div.td-excerpt");
+                            for(Element descs : desc){
+                                String description = descs.text();
+                                //System.out.println(description);
+                                article.setDescription(description);
+                                articleList.add(article);
+                            }
+                        }
+                    }
+                }
+            }
+            //articleList.forEach(System.out::println);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return articleList;
+    }
+    public static List<Article> getMedia24(){
+        //https://medias24.com/ 21/01/2022
+        String url = "https://medias24.com/";
+        List<Article> articleList = new ArrayList<>();
+        try{
+            Document doc = Jsoup.connect(url).get();
+            String title = doc.title();
+            //System.out.println(title);
+            Elements docs = doc.select("section.bloc-rubrique");
+            Elements main = docs.select("div.hero-section");
+            Elements content = main.select("div#classement-list");
+            Elements item = content.select("div.items-row");
+            for(Element items : item){
+                Elements bods = items.select("div#ar");
+                for(Element bod: bods){
+                    Article article = new Article();
+                    Source source = new Source();
+                    source.setNom("Medias24");
+                    source.setPays("Maroc");
+                    source.setUrl_source(url);
+                    article.setSource(source);
+                    Elements bodys = bod.select("article.article-small");
+                    for(Element liens : bodys){
+                        Elements lienA = liens.select("a").select("figure");
+                        for(Element img : lienA){
+                            String imageurl = img.select("img.attachment-medium").attr("src");
+                            //System.out.println(imageurl);
+                            article.setUrl_image(imageurl);
+                        }
+                    }
+                    String urlArticle = bodys.select("a.titleLink").attr("href");
+                    article.setUrl_article(urlArticle);
+                    Elements urlA = bodys.select("a.titleLink");
+                    for(Element tits : urlA){
+                        String titres = tits.select("h2.titre").text();
+                        //System.out.println(titres);
+                        article.setTitre(titres);
+                    }
+                    Elements desc = bodys.select("a.extraitLink");
+                    for(Element descs : desc){
+                        String description = descs.select("p.chapo-rub").text();
+                        //System.out.println(description);
+                        article.setDescription(description);
+                        articleList.add(article);
+                    }
+                }
+            }
+            //articleList.forEach(System.out::println);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return articleList;
+    }
     public static List<Article> getAfrikfoot(){
         //Afrik-foot 21/01/2022
         String url = "https://www.afrik-foot.com/";

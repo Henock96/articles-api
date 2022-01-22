@@ -94,10 +94,15 @@ public class ArticleService {
 
    public Collection<List<Article>> getArticleDuJour(){
         List<List<Article>> articleHashMap = new ArrayList<>();
-        List<Article> articleAfrimag = findSourceByName("Afrimag").subList(0, 2);
-        List<Article> articleKoaci = findSourceByName("Koaci").subList(0, 2);
-        List<Article> articleSenego = findSourceByName("Senego").subList(0, 2);
         List<Article> articleJeuneAfrique = findSourceByName("Jeune Afrique").subList(0, 2);
+       List<Article> articleKoaci = findSourceByName("Koaci").subList(0, 2);
+       List<Article> articleAdiac = findSourceByName("Adiac-Congo").subList(0, 2);
+       List<Article> articleTelquel = findSourceByName("Telquel").subList(0,1);
+       List<Article> articleAfrimag = findSourceByName("Afrimag").subList(0, 2);
+        List<Article> articleScidev = findSourceByName("Scidev").subList(0, 1);
+        List<Article> articleSenego = findSourceByName("Senego").subList(0, 2);
+        List<Article> articleAfrikfoot = findSourceByName("Afrik-Foot").subList(0, 1);
+        List<Article> articleLatribune = findSourceByName("Latribune").subList(0, 2);
         List<Article> articleGabonReview = findSourceByName("Gabon Review").subList(0, 2);
         List<Article> articleDakarActu = findSourceByName("DakarActu").subList(0, 2);
         List<Article> articleLesEchos = findSourceByName("LesEchos").subList(0, 2);
@@ -105,20 +110,24 @@ public class ArticleService {
         List<Article> articleLinfodrome = findSourceByName("Linfodrome").subList(0, 2);
         List<Article> articleAps = findSourceByName("Aps").subList(0, 2);
         List<Article> articleJournalDeBrazza = findSourceByName("JournalDeBrazza").subList(0, 2);
-        List<Article> articleAdiac = findSourceByName("Adiac-Congo").subList(0, 2);
 
-        articleHashMap.add(articleAfrimag);
+       articleHashMap.add(articleJeuneAfrique);
+       articleHashMap.add(articleJournalDeBrazza);
         articleHashMap.add(articleKoaci);
         articleHashMap.add(articleSenego);
-        articleHashMap.add(articleJeuneAfrique);
+        articleHashMap.add(articleScidev);
+        articleHashMap.add(articleLatribune);
+        articleHashMap.add(articleAfrikfoot);
+        articleHashMap.add(articleTelquel);
+       articleHashMap.add(articleAfrimag);
         articleHashMap.add(articleGabonReview);
         articleHashMap.add(articleDakarActu);
         articleHashMap.add(articleLesEchos);
         articleHashMap.add(articleCamerounInfo);
         articleHashMap.add(articleLinfodrome);
        articleHashMap.add(articleAps);
-       articleHashMap.add(articleJournalDeBrazza);
        articleHashMap.add(articleAdiac);
+
        return articleHashMap;
    }
 }

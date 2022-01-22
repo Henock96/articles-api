@@ -28,10 +28,20 @@ public class ArticlesApplication implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
+
+
+
+        //articles22.forEach(System.out::println);
+
+
+
+
+
     }
 
     @Scheduled(cron = "0 */180 * * * ?")
     public void perform(){
+        List<Article> articles18 = ExtractionSource.getTelquel();
         List<Article> articles5 = ExtractionSource.getAdiacCongo();
         List<Article> articles6 = ExtractionSource.getGabonReview();
         List<Article> articles7 = ExtractionSource.getCamerounInfo();
@@ -39,6 +49,8 @@ public class ArticlesApplication implements CommandLineRunner {
         List<Article> articles9 = ExtractionSource.getAps();
         List<Article> articles11 = ExtractionSource.getAfrimag();
         List<Article> articles17 = ExtractionSource.getAfriqueitnews();
+
+        articleService.saveAllArticle(articles18);
         articleService.saveAllArticle(articles6);
         articleService.saveAllArticle(articles7);
         articleService.saveAllArticle(articles8);
@@ -51,11 +63,13 @@ public class ArticlesApplication implements CommandLineRunner {
 
     @Scheduled(cron = "0 */240 * * * ?")
     public void perform2(){
+        List<Article> articles20 = ExtractionSource.getScidev();
         List<Article> articles = ExtractionSource.getKoaciExtract();
         List<Article> articles1 = ExtractionSource.getJournalDeBrazza();
         List<Article> articles2 = ExtractionSource.getJeuneAfrique();
         List<Article> articles3 = ExtractionSource.getSenego();
         List<Article> articles16 = ExtractionSource.getAfriquelatribuneTechTelecoms();
+        articleService.saveAllArticle(articles20);
         articleService.saveAllArticle(articles);
         articleService.saveAllArticle(articles1);
         articleService.saveAllArticle(articles2);
@@ -65,12 +79,19 @@ public class ArticlesApplication implements CommandLineRunner {
     }
     @Scheduled(cron = "0 */240 * * * *")
     public void perform3(){
+        List<Article> articles21 = ExtractionSource.getMedia24();
+        List<Article> articles19 = ExtractionSource.getIvoiresoir();
         List<Article> articles12 = ExtractionSource.getAfriquelatribuneTech();
         List<Article> articles13 = ExtractionSource.getAfrikfoot();
         List<Article> articles14 = ExtractionSource.getAfriquelatribuneEconomie();
         List<Article> articles15 = ExtractionSource.getAfriquelatribunePolitique();
         List<Article> articles4 = ExtractionSource.getLesEchosExtraction();
+        List<Article> articles22 = ExtractionSource.getVox();
         List<Article> articles10 = ExtractionSource.getDakarActu();
+
+        articleService.saveAllArticle(articles21);
+        articleService.saveAllArticle(articles22);
+        articleService.saveAllArticle(articles19);
         articleService.saveAllArticle(articles12);
         articleService.saveAllArticle(articles13);
         articleService.saveAllArticle(articles14);
