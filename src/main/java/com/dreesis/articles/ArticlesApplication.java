@@ -28,15 +28,6 @@ public class ArticlesApplication implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
-
-
-
-        //articles22.forEach(System.out::println);
-
-
-
-
-
     }
 
     @Scheduled(cron = "0 */180 * * * ?")
@@ -49,7 +40,9 @@ public class ArticlesApplication implements CommandLineRunner {
         List<Article> articles9 = ExtractionSource.getAps();
         List<Article> articles11 = ExtractionSource.getAfrimag();
         List<Article> articles17 = ExtractionSource.getAfriqueitnews();
+        List<Article> articles19 = ExtractionSource.getIvoiresoir();
 
+        articleService.saveAllArticle(articles19);
         articleService.saveAllArticle(articles18);
         articleService.saveAllArticle(articles6);
         articleService.saveAllArticle(articles7);
@@ -80,7 +73,6 @@ public class ArticlesApplication implements CommandLineRunner {
     @Scheduled(cron = "0 */240 * * * *")
     public void perform3(){
         List<Article> articles21 = ExtractionSource.getMedia24();
-        List<Article> articles19 = ExtractionSource.getIvoiresoir();
         List<Article> articles12 = ExtractionSource.getAfriquelatribuneTech();
         List<Article> articles13 = ExtractionSource.getAfrikfoot();
         List<Article> articles14 = ExtractionSource.getAfriquelatribuneEconomie();
@@ -91,7 +83,6 @@ public class ArticlesApplication implements CommandLineRunner {
 
         articleService.saveAllArticle(articles21);
         articleService.saveAllArticle(articles22);
-        articleService.saveAllArticle(articles19);
         articleService.saveAllArticle(articles12);
         articleService.saveAllArticle(articles13);
         articleService.saveAllArticle(articles14);
