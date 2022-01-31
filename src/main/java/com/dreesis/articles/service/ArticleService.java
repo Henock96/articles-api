@@ -113,9 +113,9 @@ public class ArticleService {
 
        articleHashMap.add(articleJeuneAfrique);
        articleHashMap.add(articleJournalDeBrazza);
+       articleHashMap.add(articleScidev);
         articleHashMap.add(articleKoaci);
         articleHashMap.add(articleSenego);
-        articleHashMap.add(articleScidev);
         articleHashMap.add(articleLatribune);
         articleHashMap.add(articleAfrikfoot);
         articleHashMap.add(articleTelquel);
