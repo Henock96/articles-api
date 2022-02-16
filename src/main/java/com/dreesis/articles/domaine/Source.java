@@ -21,6 +21,7 @@ public class Source implements Serializable {
     private String nom;
     private String pays;
     private String titre;
+    private String url_logo;
     private String url_source;
 
 }

@@ -102,6 +102,7 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setNom("Vox");
                     source.setTitre(title);
+                    source.setUrl_logo("https://www.vox.cg/fichiers/2017/02/cropped-voxnewlogo.png");
                     source.setPays("Congo");
                     source.setUrl_source(url1);
                     article.setSource(source);
@@ -154,6 +155,7 @@ public class ExtractionSource {
                         Source source = new Source();
                         source.setNom("Scidev");
                         source.setTitre(title);
+                        source.setUrl_logo("https://www.scidev.net/wp-content/uploads/2019/02/logo.png");
                         source.setPays("Afrique");
                         source.setUrl_source(url1);
                         article.setSource(source);
@@ -329,6 +331,7 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setNom("Afrik-Foot");
                     source.setTitre(title);
+                    source.setUrl_logo("https://www.afrik-foot.com/wp-content/uploads/2019/02/logo-2.png");
                     source.setPays("Afrique");
                     source.setUrl_source(url2);
                     article1.setSource(source);
@@ -628,6 +631,7 @@ public class ExtractionSource {
                     source.setPays("Afrique");
                     source.setUrl_source(url1);
                     source.setTitre(title);
+                    source.setUrl_source("https://afriqueitnews.com/wp-content/uploads/2020/08/aitn-logo-aitn-white.png");
                     article.setSource(source);
                     Categorie categorie = new Categorie();
                     categorie.setNom("TECHNOLOGIE");
@@ -698,6 +702,7 @@ public class ExtractionSource {
                         source.setPays("Afrique");
                         source.setUrl_source(url1);
                         source.setTitre(title);
+                        source.setUrl_source("https://afrimag.net/wp-content/uploads/2020/05/Logo-Afrimag-HD.png");
                         article.setSource(source);
                         Categorie categorie = new Categorie();
                         categorie.setNom("Économie");
@@ -760,6 +765,7 @@ public class ExtractionSource {
                     source.setNom("DakarActu");
                     source.setPays("Sénégal");
                     source.setTitre(title);
+                    source.setUrl_source("https://www.dakaractu.com/photo/titre_4609675.png?v=1508293565");
                     source.setUrl_source(url1);
                     article.setSource(source);
                     Elements titr = tit.select("h3.titre");
@@ -819,6 +825,7 @@ public class ExtractionSource {
                     source.setNom("Aps");
                     source.setPays("Sénégal");
                     source.setTitre(title);
+                    source.setUrl_source("http://aps.sn/squelettes/images/theme/logo.png");
                     source.setUrl_source(url1);
                     article.setSource(source);
                     String urlA = listes.select("a").attr("href");
@@ -875,6 +882,7 @@ public class ExtractionSource {
                     source.setTitre(title);
                     source.setPays("Congo");
                     source.setUrl_source(url2);
+                    source.setUrl_source("https://www.adiac-congo.com/sites/default/files/images/logo.png");
                     article.setSource(source);
                     Elements titres = field.select("div.views-field-title");
                     for(Element titre : titres){
@@ -1012,6 +1020,7 @@ public class ExtractionSource {
                         source.setTitre(titresweb);
                         source.setPays("Côte d'ivoire");
                         source.setUrl_source(url1);
+                        source.setUrl_source("https://www.koaci.com/img/koaci_logo.png");
                         article.setSource(source);
                         article.setUrl_article(rel);
 
@@ -1074,6 +1083,7 @@ public class ExtractionSource {
                     source.setUrl_source(url1);
                     source.setNom("LesEchos");
                     source.setTitre(title);
+                    source.setUrl_source("https://lesechos-congobrazza.com/templates/ja_magz_ii/images/logo.png");
                     source.setPays("Congo");
                     article.setSource(source);
                     for(Element post : row){
@@ -1209,6 +1219,7 @@ public class ExtractionSource {
                     source.setPays("Sénégal");
                     source.setNom("Senego");
                     source.setTitre(title);
+                    source.setUrl_source("https://senego.com/wp-content/themes/senegoV11/images/logo-1.png");
                     source.setUrl_source(url1);
                     article1.setSource(source);
                     Elements articleImg = article.select("div.posts-list-images");
@@ -1296,6 +1307,7 @@ public class ExtractionSource {
                             article.setCategorie(categorie1);
                             source.setNom("Gabon Review");
                             source.setTitre(title);
+                            source.setUrl_source("https://www.gabonreview.com/wp-content/uploads/2020/02/logogabonreview212-1-1.png");
                             source.setPays("Gabon");
                             source.setUrl_source(url1);
                             article.setSource(source);
