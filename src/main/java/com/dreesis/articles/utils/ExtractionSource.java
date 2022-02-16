@@ -34,6 +34,7 @@ public class ExtractionSource {
                         Article article = new Article();
                         Source source = new Source();
                         source.setNom("Telquel");
+                        source.setTitre(title);
                         source.setPays("Maroc");
                         source.setUrl_source(url4);
                         article.setSource(source);
@@ -100,6 +101,7 @@ public class ExtractionSource {
                     Article article = new Article();
                     Source source = new Source();
                     source.setNom("Vox");
+                    source.setTitre(title);
                     source.setPays("Congo");
                     source.setUrl_source(url1);
                     article.setSource(source);
@@ -151,6 +153,7 @@ public class ExtractionSource {
                         Article article = new Article();
                         Source source = new Source();
                         source.setNom("Scidev");
+                        source.setTitre(title);
                         source.setPays("Afrique");
                         source.setUrl_source(url1);
                         article.setSource(source);
@@ -325,6 +328,7 @@ public class ExtractionSource {
                     Article article1 = new Article();
                     Source source = new Source();
                     source.setNom("Afrik-Foot");
+                    source.setTitre(title);
                     source.setPays("Afrique");
                     source.setUrl_source(url2);
                     article1.setSource(source);
@@ -392,6 +396,7 @@ public class ExtractionSource {
                     Article article = new Article();
                     Source source = new Source();
                     source.setNom("Latribune");
+                    source.setTitre("Toute l'économie du Continent");
                     source.setPays("Afrique");
                     source.setUrl_source(url1);
                     article.setSource(source);
@@ -448,6 +453,7 @@ public class ExtractionSource {
                     Article article = new Article();
                     Source source = new Source();
                     source.setNom("Latribune");
+                    source.setTitre("Toute l'économie du Continent");
                     source.setPays("Afrique");
                     source.setUrl_source(url1);
                     article.setSource(source);
@@ -504,6 +510,7 @@ public class ExtractionSource {
                     Article article = new Article();
                     Source source = new Source();
                     source.setNom("Latribune");
+                    source.setTitre("Toute l'économie du Continent");
                     source.setPays("Afrique");
                     source.setUrl_source(urlspe);
                     article.setSource(source);
@@ -560,6 +567,7 @@ public class ExtractionSource {
                     Article article = new Article();
                     Source source = new Source();
                     source.setNom("Latribune");
+                    source.setTitre("Toute l'économie du Continent");
                     source.setPays("Afrique");
                     source.setUrl_source(urlspe);
                     article.setSource(source);
@@ -619,6 +627,7 @@ public class ExtractionSource {
                     source.setNom("AfriqueITNews");
                     source.setPays("Afrique");
                     source.setUrl_source(url1);
+                    source.setTitre(title);
                     article.setSource(source);
                     Categorie categorie = new Categorie();
                     categorie.setNom("TECHNOLOGIE");
@@ -673,7 +682,7 @@ public class ExtractionSource {
         try {
             Document doc = Jsoup.connect(url).get();
             String title = doc.title();
-            ///System.out.println(title);
+            //System.out.println(title);
             Elements docs = doc.select("div.main");
             Elements main = docs.select("div.row");
             Elements centre = main.select("div.main-content");
@@ -688,6 +697,7 @@ public class ExtractionSource {
                         source.setNom("Afrimag");
                         source.setPays("Afrique");
                         source.setUrl_source(url1);
+                        source.setTitre(title);
                         article.setSource(source);
                         Categorie categorie = new Categorie();
                         categorie.setNom("Économie");
@@ -749,6 +759,7 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setNom("DakarActu");
                     source.setPays("Sénégal");
+                    source.setTitre(title);
                     source.setUrl_source(url1);
                     article.setSource(source);
                     Elements titr = tit.select("h3.titre");
@@ -807,6 +818,7 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setNom("Aps");
                     source.setPays("Sénégal");
+                    source.setTitre(title);
                     source.setUrl_source(url1);
                     article.setSource(source);
                     String urlA = listes.select("a").attr("href");
@@ -860,6 +872,7 @@ public class ExtractionSource {
                     Article article = new Article();
                     Source source = new Source();
                     source.setNom("Adiac-Congo");
+                    source.setTitre(title);
                     source.setPays("Congo");
                     source.setUrl_source(url2);
                     article.setSource(source);
@@ -921,6 +934,7 @@ public class ExtractionSource {
                     Article article = new Article();
                     Source source = new Source();
                     source.setNom("JournalDeBrazza");
+                    source.setTitre(title);
                     source.setPays("Congo");
                     source.setUrl_source(url1);
                     article.setSource(source);
@@ -975,7 +989,7 @@ public class ExtractionSource {
 
         try {
             Document dc = Jsoup.connect(url).get();
-            //String title = dc.title();
+            String titresweb = dc.title();
             Elements body = dc.select("div.KoaciPageWhite");
             //Premier bloc
             for(Element step : body){
@@ -995,6 +1009,7 @@ public class ExtractionSource {
                         Article article = new Article();
                         Source source = new Source();
                         source.setNom("Koaci");
+                        source.setTitre(titresweb);
                         source.setPays("Côte d'ivoire");
                         source.setUrl_source(url1);
                         article.setSource(source);
@@ -1058,6 +1073,7 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setUrl_source(url1);
                     source.setNom("LesEchos");
+                    source.setTitre(title);
                     source.setPays("Congo");
                     article.setSource(source);
                     for(Element post : row){
@@ -1133,6 +1149,7 @@ public class ExtractionSource {
                     Article article = new Article();
                     Source source = new Source();
                     source.setPays("Afrique");
+                    source.setTitre(title);
                     source.setNom("Jeune Afrique");
                     source.setUrl_source(url1);
                     article.setSource(source);
@@ -1191,6 +1208,7 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setPays("Sénégal");
                     source.setNom("Senego");
+                    source.setTitre(title);
                     source.setUrl_source(url1);
                     article1.setSource(source);
                     Elements articleImg = article.select("div.posts-list-images");
@@ -1277,6 +1295,7 @@ public class ExtractionSource {
                             Source source = new Source();
                             article.setCategorie(categorie1);
                             source.setNom("Gabon Review");
+                            source.setTitre(title);
                             source.setPays("Gabon");
                             source.setUrl_source(url1);
                             article.setSource(source);
@@ -1316,13 +1335,13 @@ public class ExtractionSource {
     }
 
     public static List<Article> getCamerounInfo(){
-        String url ="http://www.cameroon-info.net";
+        String url ="http://www.cameroon-info.net/";
         String url1 ="cameroon-info.net";
         List<Article> allArticle = new ArrayList<Article>();
 
         try {
             Document dc = Jsoup.connect(url).get();
-            //String title = dc.title();
+            String title = dc.title();
             Elements bod = dc.select("div.cp-news-grid-style-1");
             Elements body = bod.select("div.row");
             Elements row = body.select("div.col-md-12");
@@ -1335,6 +1354,7 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setUrl_source(url1);
                     source.setPays("Cameroun");
+                    source.setTitre(title);
                     source.setNom("Cameroon-Info");
                     article.setSource(source);
                     for(Element lienA : lien){
@@ -1386,6 +1406,7 @@ public class ExtractionSource {
 
         try {
             Document dc = Jsoup.connect(url).timeout(100 * 1000).get();//.get();
+            String titreweb = dc.title();
             Elements bod = dc.select("div.bottom-container");
             Elements body = bod.select("div.uk-grid-small");
             Elements row = body.select("div.content");
@@ -1393,6 +1414,7 @@ public class ExtractionSource {
                 Article article = new Article();
                 Source source = new Source();
                 source.setNom("Linfodrome");
+                source.setTitre(titreweb);
                 source.setUrl_source(url1);
                 source.setPays("Côte d'ivoire");
                 article.setSource(source);

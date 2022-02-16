@@ -58,6 +58,8 @@ public class ArticlesApplication implements CommandLineRunner {
         ///List<Article> articles10 = ExtractionSource.getDakarActu();
         //articles10.forEach(System.out::println);
 
+
+
     }
 
     @Scheduled(cron = "0 */180 * * * ?")
@@ -65,7 +67,6 @@ public class ArticlesApplication implements CommandLineRunner {
         //Split url format 18/02/2022
         List<Article> articles18 = ExtractionSource.getTelquel();
         List<Article> articles6 = ExtractionSource.getGabonReview();
-        List<Article> articles7 = ExtractionSource.getCamerounInfo();
         List<Article> articles8 = ExtractionSource.getLinfodrome();
         List<Article> articles9 = ExtractionSource.getAps();
         List<Article> articles11 = ExtractionSource.getAfrimag();
@@ -73,7 +74,6 @@ public class ArticlesApplication implements CommandLineRunner {
 
         articleService.saveAllArticle(articles18);
         articleService.saveAllArticle(articles6);
-        articleService.saveAllArticle(articles7);
         articleService.saveAllArticle(articles8);
         articleService.saveAllArticle(articles9);
         articleService.saveAllArticle(articles17);
@@ -90,6 +90,8 @@ public class ArticlesApplication implements CommandLineRunner {
         List<Article> articles2 = ExtractionSource.getJeuneAfrique();
         List<Article> articles3 = ExtractionSource.getSenego();
         List<Article> articles16 = ExtractionSource.getAfriquelatribuneTechTelecoms();
+        List<Article> articlesAdiac = ExtractionSource.getAdiacCongo();
+        articleService.saveAllArticle(articlesAdiac);
         articleService.saveAllArticle(articles20);
         articleService.saveAllArticle(articles);
         articleService.saveAllArticle(articles1);

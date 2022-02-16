@@ -20,6 +20,7 @@ public class Source implements Serializable {
     @Column(unique = true)
     private String nom;
     private String pays;
+    private String titre;
     private String url_source;
 
 }

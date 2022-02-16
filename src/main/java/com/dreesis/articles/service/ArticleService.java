@@ -123,7 +123,6 @@ public class ArticleService {
         articleHashMap.add(articleGabonReview);
         articleHashMap.add(articleDakarActu);
         articleHashMap.add(articleLesEchos);
-        articleHashMap.add(articleCamerounInfo);
         articleHashMap.add(articleLinfodrome);
        articleHashMap.add(articleAps);
        articleHashMap.add(articleAdiac);
