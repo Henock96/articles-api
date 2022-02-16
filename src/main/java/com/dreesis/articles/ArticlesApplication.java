@@ -27,22 +27,50 @@ public class ArticlesApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
+        //**List<Article> articles5 = ExtractionSource.getAdiacCongo();
+
+
+        //Group perfom 1
+        //**List<Article> articles18 = ExtractionSource.getTelquel();
+        //**List<Article> articles6 = ExtractionSource.getGabonReview();
+        //**List<Article> articles7 = ExtractionSource.getCamerounInfo();
+        //L'infodrome read timed out
+        //***List<Article> articles8 = ExtractionSource.getLinfodrome();
+        //***List<Article> articles9 = ExtractionSource.getAps();
+        //***List<Article> articles11 = ExtractionSource.getAfrimag();
+        //***List<Article> articles17 = ExtractionSource.getAfriqueitnews();
+
+        // Group perform 2
+        ///List<Article> articles20 = ExtractionSource.getScidev();
+        ///List<Article> articles = ExtractionSource.getKoaciExtract();
+        ///List<Article> articles1 = ExtractionSource.getJournalDeBrazza();
+        ///List<Article> articles2 = ExtractionSource.getJeuneAfrique();
+        ///List<Article> articles3 = ExtractionSource.getSenego();
+        ///List<Article> articles16 = ExtractionSource.getAfriquelatribuneTechTelecoms();
+
+        //Group perform 3
+        ///List<Article> articles12 = ExtractionSource.getAfriquelatribuneTech();
+        //List<Article> articles13 = ExtractionSource.getAfrikfoot();
+        ///List<Article> articles14 = ExtractionSource.getAfriquelatribuneEconomie();
+        ///List<Article> articles15 = ExtractionSource.getAfriquelatribunePolitique();
+        ///List<Article> articles4 = ExtractionSource.getLesEchosExtraction();
+        ///List<Article> articles22 = ExtractionSource.getVox();
+        ///List<Article> articles10 = ExtractionSource.getDakarActu();
+        //articles10.forEach(System.out::println);
 
     }
 
     @Scheduled(cron = "0 */180 * * * ?")
     public void perform(){
+        //Split url format 18/02/2022
         List<Article> articles18 = ExtractionSource.getTelquel();
-        List<Article> articles5 = ExtractionSource.getAdiacCongo();
         List<Article> articles6 = ExtractionSource.getGabonReview();
         List<Article> articles7 = ExtractionSource.getCamerounInfo();
         List<Article> articles8 = ExtractionSource.getLinfodrome();
         List<Article> articles9 = ExtractionSource.getAps();
         List<Article> articles11 = ExtractionSource.getAfrimag();
         List<Article> articles17 = ExtractionSource.getAfriqueitnews();
-        //List<Article> articles19 = ExtractionSource.getIvoiresoir();
 
-        //articleService.saveAllArticle(articles19);
         articleService.saveAllArticle(articles18);
         articleService.saveAllArticle(articles6);
         articleService.saveAllArticle(articles7);
@@ -50,7 +78,7 @@ public class ArticlesApplication implements CommandLineRunner {
         articleService.saveAllArticle(articles9);
         articleService.saveAllArticle(articles17);
         articleService.saveAllArticle(articles11);
-        articleService.saveAllArticle(articles5);
+        //articleService.saveAllArticle(articles5);
         System.err.println("Enregistrement des articles toutes les 180 minutes donc 3 heures");
     }
 
@@ -73,6 +101,7 @@ public class ArticlesApplication implements CommandLineRunner {
     @Scheduled(cron = "0 */240 * * * *")
     public void perform3(){
         //List<Article> articles21 = ExtractionSource.getMedia24();
+        //Mise a jour 16/02/2022
         List<Article> articles12 = ExtractionSource.getAfriquelatribuneTech();
         List<Article> articles13 = ExtractionSource.getAfrikfoot();
         List<Article> articles14 = ExtractionSource.getAfriquelatribuneEconomie();
@@ -82,6 +111,7 @@ public class ArticlesApplication implements CommandLineRunner {
         List<Article> articles10 = ExtractionSource.getDakarActu();
 
         //articleService.saveAllArticle(articles21);
+        //
         articleService.saveAllArticle(articles22);
         articleService.saveAllArticle(articles12);
         articleService.saveAllArticle(articles13);

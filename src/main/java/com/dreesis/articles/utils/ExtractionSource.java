@@ -16,6 +16,7 @@ public class ExtractionSource {
     public static List<Article> getTelquel(){
         //lequel.ma 22/01/2022
         String url = "https://telquel.ma/";
+        String url4 = "telquel.ma";
         List<Article> articleList = new ArrayList<>();
         try {
             Document doc = Jsoup.connect(url).get();
@@ -34,7 +35,7 @@ public class ExtractionSource {
                         Source source = new Source();
                         source.setNom("Telquel");
                         source.setPays("Maroc");
-                        source.setUrl_source(url);
+                        source.setUrl_source(url4);
                         article.setSource(source);
                         Elements header = posts.select("div.article-header");
                         for(Element heads : header){
@@ -83,6 +84,7 @@ public class ExtractionSource {
     public static List<Article> getVox(){
         //Vox.cg 12/01/2022
         String url = "https://www.vox.cg/";
+        String url1 = "vox.cg";
         List<Article> liste = new ArrayList<>();
         try{
             Document doc = Jsoup.connect(url).get();
@@ -99,7 +101,7 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setNom("Vox");
                     source.setPays("Congo");
-                    source.setUrl_source(url);
+                    source.setUrl_source(url1);
                     article.setSource(source);
                     Elements img = posts.select("div.img-featured-posts-image");
                     for(Element urlArt : img){
@@ -132,6 +134,7 @@ public class ExtractionSource {
     }
     public static List<Article> getScidev(){
         String url = "https://www.scidev.net/afrique-sub-saharienne/";
+        String url1 = "scidev.net";
         List<Article> articleList = new ArrayList<>();
         try{
             Document doc = Jsoup.connect(url).get();
@@ -149,7 +152,7 @@ public class ExtractionSource {
                         Source source = new Source();
                         source.setNom("Scidev");
                         source.setPays("Afrique");
-                        source.setUrl_source(url);
+                        source.setUrl_source(url1);
                         article.setSource(source);
                         Categorie categorie = new Categorie();
                         categorie.setNom("SANTÉ");
@@ -304,6 +307,7 @@ public class ExtractionSource {
     public static List<Article> getAfrikfoot(){
         //Afrik-foot 21/01/2022
         String url = "https://www.afrik-foot.com/";
+        String url2 = "afrik-foot.com";
         List<Article> liste = new ArrayList<>();
 
         try {
@@ -322,7 +326,7 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setNom("Afrik-Foot");
                     source.setPays("Afrique");
-                    source.setUrl_source(url);
+                    source.setUrl_source(url2);
                     article1.setSource(source);
                     Categorie categorie = new Categorie();
                     categorie.setNom("SPORT");
@@ -372,6 +376,7 @@ public class ExtractionSource {
     }
     public static List<Article> getAfriquelatribuneEconomie(){
         String url = "https://afrique.latribune.fr/economie";
+        String url1 = "afrique.latribune.fr";
         List<Article> liste = new ArrayList<>();
         try{
             Document doc = Jsoup.connect(url).get();
@@ -388,7 +393,7 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setNom("Latribune");
                     source.setPays("Afrique");
-                    source.setUrl_source(url);
+                    source.setUrl_source(url1);
                     article.setSource(source);
                     Categorie categorie = new Categorie();
                     categorie.setNom("ÉCONOMIE");
@@ -427,6 +432,7 @@ public class ExtractionSource {
     }
     public static List<Article> getAfriquelatribunePolitique(){
         String url = "https://afrique.latribune.fr/politique";
+        String url1 = "afrique.latribune.fr";
         List<Article> liste = new ArrayList<>();
         try{
             Document doc = Jsoup.connect(url).get();
@@ -443,7 +449,7 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setNom("Latribune");
                     source.setPays("Afrique");
-                    source.setUrl_source(url);
+                    source.setUrl_source(url1);
                     article.setSource(source);
                     Categorie categorie = new Categorie();
                     categorie.setNom("POLITIQUE");
@@ -482,6 +488,7 @@ public class ExtractionSource {
     }
     public static List<Article> getAfriquelatribuneTech(){
         String url = "https://afrique.latribune.fr/africa-tech";
+        String urlspe = "afrique.latribune.fr";
         List<Article> liste = new ArrayList<>();
         try{
             Document doc = Jsoup.connect(url).get();
@@ -498,7 +505,7 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setNom("Latribune");
                     source.setPays("Afrique");
-                    source.setUrl_source(url);
+                    source.setUrl_source(urlspe);
                     article.setSource(source);
                     Categorie categorie = new Categorie();
                     categorie.setNom("TECHNOLOGIE");
@@ -537,6 +544,7 @@ public class ExtractionSource {
     }
     public static List<Article> getAfriquelatribuneTechTelecoms(){
         String url2 = "https://afrique.latribune.fr/africa-tech/telecoms";
+        String urlspe = "afrique.latribune.fr";
         List<Article> liste = new ArrayList<>();
         try{
             Document doc = Jsoup.connect(url2).get();
@@ -553,7 +561,7 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setNom("Latribune");
                     source.setPays("Afrique");
-                    source.setUrl_source(url2);
+                    source.setUrl_source(urlspe);
                     article.setSource(source);
                     Categorie categorie = new Categorie();
                     categorie.setNom("TECHNOLOGIE");
@@ -592,6 +600,8 @@ public class ExtractionSource {
     }
     public static List<Article> getAfriqueitnews(){
         String url = "https://afriqueitnews.com/";
+        String url1 = "afriqueitnews.com";
+
         List<Article> liste = new ArrayList<>();
         try{
             Document doc = Jsoup.connect(url).get();
@@ -608,7 +618,7 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setNom("AfriqueITNews");
                     source.setPays("Afrique");
-                    source.setUrl_source(url);
+                    source.setUrl_source(url1);
                     article.setSource(source);
                     Categorie categorie = new Categorie();
                     categorie.setNom("TECHNOLOGIE");
@@ -658,6 +668,7 @@ public class ExtractionSource {
     public static List<Article> getAfrimag(){
         //Afrimag 11/01/2022
         String url = "https://afrimag.net/rubrique/economie-et-entreprise/";
+        String url1 = "afrimag.net";
         List<Article> liste = new ArrayList<>();
         try {
             Document doc = Jsoup.connect(url).get();
@@ -676,7 +687,7 @@ public class ExtractionSource {
                         Source source = new Source();
                         source.setNom("Afrimag");
                         source.setPays("Afrique");
-                        source.setUrl_source(url);
+                        source.setUrl_source(url1);
                         article.setSource(source);
                         Categorie categorie = new Categorie();
                         categorie.setNom("Économie");
@@ -723,6 +734,7 @@ public class ExtractionSource {
     public static List<Article> getDakarActu(){
         //DakarActu 11/01/2022
         String url = "https://www.dakaractu.com";
+        String url1 = "dakaractu.com";
         List<Article> liste = new ArrayList<>();
         try{
             Document doc = Jsoup.connect(url).get();
@@ -737,7 +749,7 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setNom("DakarActu");
                     source.setPays("Sénégal");
-                    source.setUrl_source(url);
+                    source.setUrl_source(url1);
                     article.setSource(source);
                     Elements titr = tit.select("h3.titre");
                     for(Element titres : titr){
@@ -775,9 +787,11 @@ public class ExtractionSource {
     public static List<Article> getAps() {
         //APS 11/01/2022
         String url = "http://aps.sn/";
+        String url1 = "aps.sn";
+
         List<Article> liste = new ArrayList<>();
         try{
-            Document doc = Jsoup.connect(url).get();
+            Document doc = Jsoup.connect(url).timeout(100 * 1000).get();//.get();
             String title = doc.title();
             //System.out.println(title);
             Elements docs = doc.select("div.page-content");
@@ -793,7 +807,7 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setNom("Aps");
                     source.setPays("Sénégal");
-                    source.setUrl_source(url);
+                    source.setUrl_source(url1);
                     article.setSource(source);
                     String urlA = listes.select("a").attr("href");
                     //System.out.println(url+urlA);
@@ -829,6 +843,7 @@ public class ExtractionSource {
         //Adiac-Congo 12/01/2022
 
         String url = "https://www.adiac-congo.com";
+        String url2 = "adiac-congo.com";
         List<Article> liste = new ArrayList<>();
         try{
             Document doc = Jsoup.connect(url).get();
@@ -846,7 +861,7 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setNom("Adiac-Congo");
                     source.setPays("Congo");
-                    source.setUrl_source(url);
+                    source.setUrl_source(url2);
                     article.setSource(source);
                     Elements titres = field.select("div.views-field-title");
                     for(Element titre : titres){
@@ -890,6 +905,7 @@ public class ExtractionSource {
     public static List<Article> getJournalDeBrazza() {
         //JournalDeBrazza 12/01/2022
         String url = "https://www.journaldebrazza.com/";
+        String url1 = "journaldebrazza.com";
         List<Article> liste = new ArrayList<>();
         try{
             Document doc = Jsoup.connect(url).get();
@@ -906,7 +922,7 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setNom("JournalDeBrazza");
                     source.setPays("Congo");
-                    source.setUrl_source(url);
+                    source.setUrl_source(url1);
                     article.setSource(source);
                     Elements posts = news.select("article.medium-post");
                     for(Element block :posts){
@@ -954,6 +970,7 @@ public class ExtractionSource {
     public static List<Article> getKoaciExtract() throws RuntimeException{
         //Koaci Afrique
         String url ="https://www.koaci.com/pays/afrique";
+        String url1 ="koaci.com";
         List<Article> allArticle = new ArrayList<Article>();
 
         try {
@@ -979,7 +996,7 @@ public class ExtractionSource {
                         Source source = new Source();
                         source.setNom("Koaci");
                         source.setPays("Côte d'ivoire");
-                        source.setUrl_source(url);
+                        source.setUrl_source(url1);
                         article.setSource(source);
                         article.setUrl_article(rel);
 
@@ -1026,6 +1043,7 @@ public class ExtractionSource {
     public static List<Article> getLesEchosExtraction() throws RuntimeException{
         //EXtraction du site lesechos-congobrazza
         String url = "https://lesechos-congobrazza.com";
+        String url1 = "lesechos-congobrazza.com";
         List<Article> articlesList = new ArrayList<Article>();
         try{
             Document doc = Jsoup.connect(url).get();
@@ -1038,7 +1056,7 @@ public class ExtractionSource {
                     Elements row = item.select("article");
                     Article article = new Article();
                     Source source = new Source();
-                    source.setUrl_source(url);
+                    source.setUrl_source(url1);
                     source.setNom("LesEchos");
                     source.setPays("Congo");
                     article.setSource(source);
@@ -1101,6 +1119,7 @@ public class ExtractionSource {
 
     public static List<Article> getJeuneAfrique(){
         String url = "https://www.jeuneafrique.com/";
+        String url1 = "jeuneafrique.com";
         List<Article> jList = new ArrayList<Article>();
         try{
             Document doc = Jsoup.connect(url).get();
@@ -1115,7 +1134,7 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setPays("Afrique");
                     source.setNom("Jeune Afrique");
-                    source.setUrl_source(url);
+                    source.setUrl_source(url1);
                     article.setSource(source);
                     for(Element articl : artis){
                         String thumb = articl.attr("href");
@@ -1158,6 +1177,7 @@ public class ExtractionSource {
     public static List<Article> getSenego(){
         //Extraction senego On a pu l'url_image_article le titre la description l'url_article l'auteur la date_article recuperer
         String url = "https://senego.com/";
+        String url1 = "senego.com";
         List<Article> list = new ArrayList<Article>();
         try {
             Document doc = Jsoup.connect(url).get();
@@ -1165,13 +1185,13 @@ public class ExtractionSource {
             Elements main = doc.select("div#main-content");
             //System.out.println(main);
             for(Element bod: main){
-                Elements body = bod.select("div#column_content article");
+                Elements body = bod.select("div.latest-posts-wrapper article");
                 for(Element article : body){
                     Article article1 = new Article();
                     Source source = new Source();
                     source.setPays("Sénégal");
                     source.setNom("Senego");
-                    source.setUrl_source(url);
+                    source.setUrl_source(url1);
                     article1.setSource(source);
                     Elements articleImg = article.select("div.posts-list-images");
                     for(Element articleImage :articleImg){
@@ -1227,6 +1247,7 @@ public class ExtractionSource {
     public static List<Article> getGabonReview(){
         //Gabon Review Extraction categorieName categorieUrl titre url_article url_img description time
         String url = "https://www.gabonreview.com/";
+        String url1 = "gabonreview.com";
         List<Article> allArticle = new ArrayList<Article>();
         try{
             Document doc = Jsoup.connect(url).get();
@@ -1257,7 +1278,7 @@ public class ExtractionSource {
                             article.setCategorie(categorie1);
                             source.setNom("Gabon Review");
                             source.setPays("Gabon");
-                            source.setUrl_source(url);
+                            source.setUrl_source(url1);
                             article.setSource(source);
                             Elements titres = post.select("h3 a");
                             for(Element titre: titres){
@@ -1296,6 +1317,7 @@ public class ExtractionSource {
 
     public static List<Article> getCamerounInfo(){
         String url ="http://www.cameroon-info.net";
+        String url1 ="cameroon-info.net";
         List<Article> allArticle = new ArrayList<Article>();
 
         try {
@@ -1311,7 +1333,7 @@ public class ExtractionSource {
                     Elements lien = bloc.select("div.cp-news-post-excerpt");
                     Article article = new Article();
                     Source source = new Source();
-                    source.setUrl_source(url);
+                    source.setUrl_source(url1);
                     source.setPays("Cameroun");
                     source.setNom("Cameroon-Info");
                     article.setSource(source);
@@ -1359,10 +1381,11 @@ public class ExtractionSource {
 
     public static List<Article> getLinfodrome(){
         String url ="https://www.linfodrome.com";
+        String url1 ="linfodrome.com";
         List<Article> allArticle = new ArrayList<Article>();
 
         try {
-            Document dc = Jsoup.connect(url).get();
+            Document dc = Jsoup.connect(url).timeout(100 * 1000).get();//.get();
             Elements bod = dc.select("div.bottom-container");
             Elements body = bod.select("div.uk-grid-small");
             Elements row = body.select("div.content");
@@ -1370,7 +1393,7 @@ public class ExtractionSource {
                 Article article = new Article();
                 Source source = new Source();
                 source.setNom("Linfodrome");
-                source.setUrl_source(url);
+                source.setUrl_source(url1);
                 source.setPays("Côte d'ivoire");
                 article.setSource(source);
                 String contents = content.select("h4.category").text();

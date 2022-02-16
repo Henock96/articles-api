@@ -11,7 +11,13 @@ spring:
     properties:
       hibernate:
         metadata_builder_contributor: com.dreesis.articles.utils.SqlFunctionsMetadataBuilderContributor
+  main:
+    web-application-type: none
+
+
 
 server:
   port: 9090
+
+
 
