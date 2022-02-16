@@ -27,7 +27,7 @@ public class ArticleService {
     @Transactional
     public List<Article> saveAllArticle(List<Article> articles){
         List<Article> articleList = new ArrayList<>();
-        for(int i = 0 ; i < articles.size(); i++) {
+        for (int i = 0 ; i < articles.size(); i++) {
             Source source = this.sourceRepository.findByNom(articles.get(i).getSource().getNom());
             if(source != null){
                 articles.get(i).getSource().setId(source.getId());
@@ -80,7 +80,7 @@ public class ArticleService {
     }
 
     public  List<Article> findSourceByName(String sourceName){
-        return repository.findSourceByName(sourceName);
+        return repository.findSourceByName(sourceName).subList(0, 15);
     }
 
     public  List<Article> findSourceByPays(String sourcePays){
