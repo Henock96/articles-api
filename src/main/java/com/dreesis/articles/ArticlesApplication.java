@@ -58,6 +58,7 @@ public class ArticlesApplication implements CommandLineRunner {
         ///List<Article> articles10 = ExtractionSource.getDakarActu();
         //articles10.forEach(System.out::println);
 
+
     }
 
     @Scheduled(cron = "0 */180 * * * ?")
@@ -69,7 +70,8 @@ public class ArticlesApplication implements CommandLineRunner {
         List<Article> articles9 = ExtractionSource.getAps();
         List<Article> articles11 = ExtractionSource.getAfrimag();
         List<Article> articles17 = ExtractionSource.getAfriqueitnews();
-
+        List<Article> articles = ExtractionSource.getCamerounInfo();
+        articleService.saveAllArticle(articles);
         articleService.saveAllArticle(articles18);
         articleService.saveAllArticle(articles6);
         articleService.saveAllArticle(articles8);
