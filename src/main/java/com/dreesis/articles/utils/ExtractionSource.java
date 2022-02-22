@@ -36,6 +36,8 @@ public class ExtractionSource {
                         source.setNom("Telquel");
                         source.setTitre(title);
                         source.setPays("Maroc");
+                        source.setUrl_contact("telquel.ma/contact");
+                        source.setUrl_contact_full("https://telquel.ma/contact");
                         source.setUrl_source(url4);
                         article.setSource(source);
                         Elements header = posts.select("div.article-header");
@@ -104,6 +106,7 @@ public class ExtractionSource {
                     source.setTitre(title);
                     source.setUrl_logo("https://www.vox.cg/fichiers/2017/02/cropped-voxnewlogo.png");
                     source.setPays("Congo");
+                    source.setContact("+242226132172");
                     source.setUrl_source(url1);
                     article.setSource(source);
                     Elements img = posts.select("div.img-featured-posts-image");
@@ -157,6 +160,8 @@ public class ExtractionSource {
                         source.setTitre(title);
                         source.setUrl_logo("https://www.scidev.net/wp-content/uploads/2019/02/logo.png");
                         source.setPays("Afrique");
+                        source.setUrl_contact("scidev.net/global/content/contact-us.html");
+                        source.setUrl_contact_full("https://www.scidev.net/global/content/contact-us.html");
                         source.setUrl_source(url1);
                         article.setSource(source);
                         Categorie categorie = new Categorie();
@@ -259,9 +264,10 @@ public class ExtractionSource {
     public static List<Article> getMedia24(){
         //https://medias24.com/ 21/01/2022
         String url = "https://medias24.com/";
+        String url2 = "medias24.com";
         List<Article> articleList = new ArrayList<>();
         try{
-            Document doc = Jsoup.connect(url).get();
+            Document doc = Jsoup.connect(url).timeout(100 * 1000).get();
             String title = doc.title();
             //System.out.println(title);
             Elements docs = doc.select("section.bloc-rubrique");
@@ -275,7 +281,11 @@ public class ExtractionSource {
                     Source source = new Source();
                     source.setNom("Medias24");
                     source.setPays("Maroc");
-                    source.setUrl_source(url);
+                    source.setTitre(title);
+                    source.setUrl_contact("medias24.com/nous-contacter/");
+                    source.setUrl_contact_full("https://medias24.com/nous-contacter/");
+                    source.setUrl_logo("https://medias24.com/content/themes/medias24/dist/logo/logo.min.new.png?x50244&v=0.0.3");
+                    source.setUrl_source(url2);
                     article.setSource(source);
                     Elements bodys = bod.select("article.article-small");
                     for(Element liens : bodys){
@@ -333,6 +343,8 @@ public class ExtractionSource {
                     source.setTitre(title);
                     source.setUrl_logo("https://www.afrik-foot.com/wp-content/uploads/2019/02/logo-2.png");
                     source.setPays("Afrique");
+                    source.setUrl_contact("afrik-foot.com/mentions-legales");
+                    source.setUrl_contact_full("https://www.afrik-foot.com/mentions-legales");
                     source.setUrl_source(url2);
                     article1.setSource(source);
                     Categorie categorie = new Categorie();
@@ -401,6 +413,8 @@ public class ExtractionSource {
                     source.setNom("Latribune");
                     source.setTitre("Toute l'économie du Continent");
                     source.setPays("Afrique");
+                    source.setUrl_contact("afrique.latribune.fr/contacts");
+                    source.setUrl_contact_full("https://afrique.latribune.fr/contacts");
                     source.setUrl_source(url1);
                     article.setSource(source);
                     Categorie categorie = new Categorie();
@@ -459,6 +473,8 @@ public class ExtractionSource {
                     source.setTitre("Toute l'économie du Continent");
                     source.setPays("Afrique");
                     source.setUrl_source(url1);
+                    source.setUrl_contact("afrique.latribune.fr/contacts");
+                    source.setUrl_contact_full("https://afrique.latribune.fr/contacts");
                     article.setSource(source);
                     Categorie categorie = new Categorie();
                     categorie.setNom("POLITIQUE");
@@ -515,6 +531,8 @@ public class ExtractionSource {
                     source.setNom("Latribune");
                     source.setTitre("Toute l'économie du Continent");
                     source.setPays("Afrique");
+                    source.setUrl_contact("afrique.latribune.fr/contacts");
+                    source.setUrl_contact_full("https://afrique.latribune.fr/contacts");
                     source.setUrl_source(urlspe);
                     article.setSource(source);
                     Categorie categorie = new Categorie();
@@ -572,6 +590,8 @@ public class ExtractionSource {
                     source.setNom("Latribune");
                     source.setTitre("Toute l'économie du Continent");
                     source.setPays("Afrique");
+                    source.setUrl_contact("afrique.latribune.fr/contacts");
+                    source.setUrl_contact_full("https://afrique.latribune.fr/contacts");
                     source.setUrl_source(urlspe);
                     article.setSource(source);
                     Categorie categorie = new Categorie();
@@ -631,6 +651,8 @@ public class ExtractionSource {
                     source.setPays("Afrique");
                     source.setUrl_source(url1);
                     source.setTitre(title);
+                    source.setUrl_contact("afriqueitnews.com/contact");
+                    source.setUrl_contact_full("https://afriqueitnews.com/contact/");
                     source.setUrl_logo("https://afriqueitnews.com/wp-content/uploads/2020/08/aitn-logo-aitn-white.png");
                     article.setSource(source);
                     Categorie categorie = new Categorie();
@@ -702,6 +724,8 @@ public class ExtractionSource {
                         source.setPays("Afrique");
                         source.setUrl_source(url1);
                         source.setTitre(title);
+                        source.setUrl_contact("afrimag.net/informations-legales");
+                        source.setUrl_contact_full("https://afrimag.net/informations-legales/");
                         source.setUrl_logo("https://afrimag.net/wp-content/uploads/2020/05/Logo-Afrimag-HD.png");
                         article.setSource(source);
                         Categorie categorie = new Categorie();
@@ -765,6 +789,7 @@ public class ExtractionSource {
                     source.setNom("DakarActu");
                     source.setPays("Sénégal");
                     source.setTitre(title);
+                    source.setContact("dakaractu@gmail.com");
                     source.setUrl_logo("https://www.dakaractu.com/photo/titre_4609675.png?v=1508293565");
                     source.setUrl_source(url1);
                     article.setSource(source);
@@ -825,6 +850,8 @@ public class ExtractionSource {
                     source.setNom("Aps");
                     source.setPays("Sénégal");
                     source.setTitre(title);
+                    source.setUrl_contact("aps.sn/spip.php?page=contact");
+                    source.setUrl_contact_full("http://aps.sn/spip.php?page=contact");
                     source.setUrl_logo("http://aps.sn/squelettes/images/theme/logo.png");
                     source.setUrl_source(url1);
                     article.setSource(source);
@@ -882,6 +909,8 @@ public class ExtractionSource {
                     source.setTitre(title);
                     source.setPays("Congo");
                     source.setUrl_source(url2);
+                    source.setUrl_contact("adiac-congo.com/content/contact");
+                    source.setUrl_contact_full("https://www.adiac-congo.com/content/contact");
                     source.setUrl_logo("https://www.adiac-congo.com/sites/default/files/images/logo.png");
                     article.setSource(source);
                     Elements titres = field.select("div.views-field-title");
@@ -944,6 +973,8 @@ public class ExtractionSource {
                     source.setNom("JournalDeBrazza");
                     source.setTitre(title);
                     source.setPays("Congo");
+                    source.setContact("infos@journaldebrazza.com");
+                    source.setUrl_logo("https://www.journaldebrazza.com/wp-content/themes/jdbrazza/assets/img/logo-journal.png");
                     source.setUrl_source(url1);
                     article.setSource(source);
                     Elements posts = news.select("article.medium-post");
@@ -1020,6 +1051,8 @@ public class ExtractionSource {
                         source.setTitre(titresweb);
                         source.setPays("Côte d'ivoire");
                         source.setUrl_source(url1);
+                        source.setUrl_contact("koaci.com/contact.html");
+                        source.setUrl_contact_full("https://www.koaci.com/contact.html");
                         source.setUrl_logo("https://www.koaci.com/img/koaci_logo.png");
                         article.setSource(source);
                         article.setUrl_article(rel);
@@ -1084,6 +1117,8 @@ public class ExtractionSource {
                     source.setNom("LesEchos");
                     source.setTitre(title);
                     source.setUrl_logo("https://lesechos-congobrazza.com/templates/ja_magz_ii/images/logo.png");
+                    source.setUrl_contact("lesechos-congobrazza.com/contact-redaction");
+                    source.setUrl_contact_full("https://lesechos-congobrazza.com/contact-redaction");
                     source.setPays("Congo");
                     article.setSource(source);
                     for(Element post : row){
@@ -1161,6 +1196,8 @@ public class ExtractionSource {
                     source.setPays("Afrique");
                     source.setTitre(title);
                     source.setNom("Jeune Afrique");
+                    source.setUrl_contact("jeuneafrique.com/contacts");
+                    source.setUrl_contact_full("https://www.jeuneafrique.com/contacts/");
                     source.setUrl_source(url1);
                     article.setSource(source);
                     for(Element articl : artis){
@@ -1219,6 +1256,8 @@ public class ExtractionSource {
                     source.setPays("Sénégal");
                     source.setNom("Senego");
                     source.setTitre(title);
+                    source.setUrl_contact("senego.com/nous-contacter");
+                    source.setUrl_contact_full("https://senego.com/nous-contacter");
                     source.setUrl_logo("https://senego.com/wp-content/themes/senegoV11/images/logo-1.png");
                     source.setUrl_source(url1);
                     article1.setSource(source);
@@ -1309,6 +1348,8 @@ public class ExtractionSource {
                             source.setTitre(title);
                             source.setUrl_logo("https://www.gabonreview.com/wp-content/uploads/2020/02/logogabonreview212-1-1.png");
                             source.setPays("Gabon");
+                            source.setUrl_contact("gabonreview.com/contact");
+                            source.setUrl_contact_full("https://www.gabonreview.com/contact/");
                             source.setUrl_source(url1);
                             article.setSource(source);
                             Elements titres = post.select("h3 a");
@@ -1367,6 +1408,8 @@ public class ExtractionSource {
                     source.setUrl_source(url1);
                     source.setPays("Cameroun");
                     source.setTitre(title);
+                    source.setUrl_logo("http://www.cameroon-info.net/img/hpage/small/cin_logo_2k20_200x.png");
+                    source.setContact("E-mail: contact(a)cameroon-info.net");
                     source.setNom("Cameroon-Info");
                     article.setSource(source);
                     for(Element lienA : lien){
@@ -1428,6 +1471,8 @@ public class ExtractionSource {
                 source.setNom("Linfodrome");
                 source.setTitre(titreweb);
                 source.setUrl_source(url1);
+                source.setUrl_contact("kiosque.linfodrome.com/contact");
+                source.setUrl_contact_full("https://kiosque.linfodrome.com/contact");
                 source.setPays("Côte d'ivoire");
                 article.setSource(source);
                 String contents = content.select("h4.category").text();
