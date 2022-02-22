@@ -110,10 +110,12 @@ public class ArticleService {
         List<Article> articleLinfodrome = findSourceByName("Linfodrome").subList(0, 1);
         List<Article> articleAps = findSourceByName("Aps").subList(0, 2);
         List<Article> articleJournalDeBrazza = findSourceByName("JournalDeBrazza").subList(0, 2);
+        List<Article> articlesMedia24 = findSourceByName("Medias24").subList(0, 1);
 
        articleHashMap.add(articleJeuneAfrique);
        articleHashMap.add(articleJournalDeBrazza);
        articleHashMap.add(articleScidev);
+       articleHashMap.add(articlesMedia24);
         articleHashMap.add(articleKoaci);
         articleHashMap.add(articleSenego);
         articleHashMap.add(articleLatribune);

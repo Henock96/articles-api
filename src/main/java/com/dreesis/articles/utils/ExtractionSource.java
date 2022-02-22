@@ -282,7 +282,7 @@ public class ExtractionSource {
                     source.setNom("Medias24");
                     source.setPays("Maroc");
                     source.setTitre(title);
-                    source.setUrl_contact("medias24.com/nous-contacter/");
+                    source.setUrl_contact("medias24.com/nous-contacter");
                     source.setUrl_contact_full("https://medias24.com/nous-contacter/");
                     source.setUrl_logo("https://medias24.com/content/themes/medias24/dist/logo/logo.min.new.png?x50244&v=0.0.3");
                     source.setUrl_source(url2);
