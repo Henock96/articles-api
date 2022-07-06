@@ -79,8 +79,10 @@ public class ArticleService {
         return repository.findByCategorie(categorie).subList(0, 15);
     }
 
+    public List<Article> findAll(){return repository.findAll();}
+
     public  List<Article> findSourceByName(String sourceName){
-        return repository.findSourceByName(sourceName).subList(0, 15);
+        return repository.findSourceByName(sourceName).subList(0, 10);
     }
 
     public  List<Article> findSourceByPays(String sourcePays){

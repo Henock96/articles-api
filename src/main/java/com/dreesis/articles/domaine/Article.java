@@ -41,9 +41,9 @@ public class Article implements Serializable {
 
     private LocalDateTime created;
 
-    @PrePersist
-    public void init() {
-        this.created = LocalDateTime.now();
-    }
+    //@PrePersist
+    //public void init() {
+     //   this.created = LocalDateTime.now();
+   // }
 
 }

@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
@@ -57,7 +58,6 @@ public class ArticlesApplication implements CommandLineRunner {
         ///List<Article> articles22 = ExtractionSource.getVox();
         ///List<Article> articles10 = ExtractionSource.getDakarActu();
         //articles10.forEach(System.out::println);
-
 
     }
 
