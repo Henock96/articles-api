@@ -82,7 +82,7 @@ public class ArticleService {
     public List<Article> findAll(){return repository.findAll();}
 
     public  List<Article> findSourceByName(String sourceName){
-        return repository.findSourceByName(sourceName).subList(0, 10);
+        return repository.findSourceByName(sourceName);
     }
 
     public  List<Article> findSourceByPays(String sourcePays){
