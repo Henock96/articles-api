@@ -102,7 +102,6 @@ public class ArticleService {
        List<Article> articleTelquel = findSourceByName("Telquel").subList(0,1);
        List<Article> articleAfrimag = findSourceByName("Afrimag").subList(0, 2);
         List<Article> articleScidev = findSourceByName("Scidev").subList(0, 1);
-        List<Article> articleSenego = findSourceByName("Senego").subList(0, 2);
         List<Article> articleAfrikfoot = findSourceByName("Afrik-Foot").subList(0, 1);
         List<Article> articleLatribune = findSourceByName("Latribune").subList(0, 2);
         List<Article> articleGabonReview = findSourceByName("Gabon Review").subList(0, 2);
@@ -119,7 +118,6 @@ public class ArticleService {
        articleHashMap.add(articleScidev);
        articleHashMap.add(articlesMedia24);
         articleHashMap.add(articleKoaci);
-        articleHashMap.add(articleSenego);
         articleHashMap.add(articleLatribune);
         articleHashMap.add(articleAfrikfoot);
         articleHashMap.add(articleTelquel);
